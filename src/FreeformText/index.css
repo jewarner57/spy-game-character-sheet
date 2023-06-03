@@ -1,0 +1,11 @@
+.fillable-freeform {
+  width: 100%;
+  resize: none;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.sheet-fillable-section {
+  flex-grow: 1;
+  height: 100%;
+}

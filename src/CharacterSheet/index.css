@@ -1,0 +1,12 @@
+.character-sheet-container {
+  background-color: white;
+  width: 1200px;
+  min-height: 500px;
+  margin: auto;
+  padding: 50px;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  gap: 20px;
+  grid-auto-rows: 130px;
+}
