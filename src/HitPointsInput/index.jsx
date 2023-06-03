@@ -1,25 +1,25 @@
 import { LabeledFreeformTextLarge } from '../FreeformText';
 import './index.css';
 
-function HitPointsInput({ title, updateSheetValues, sheetValues, accessor }) {
+function HitPointsInput({ updateSheetValues, sheetValues, accessor }) {
   
+  const hitPointsInputsConfig = [
+    { label: 'Current Hit Points', col: "1 / 3", row: "1 / 1" },
+    { label: 'Max Hit Points', col: "3 / 4", row: "1 / 1" },
+    { label: 'Temporary HP', col: "1 / 2", row: "2 / 2" },
+    { label: 'Current Hit Dice', col: "2 / 3", row: "2 / 2" },
+    { label: 'Max Hit Dice', col: "3 / 4", row: "2 / 2" },
+  ]
+
   return (
     <div className="hit-points-grid">
-      <div style={{ gridColumn: "1 / 3", gridRow: '1 / 1' }}>
-        <LabeledFreeformTextLarge label={'Current Hit Points'} updateSheetValues={updateSheetValues} sheetValues={sheetValues} accessor={accessor} />
-      </div>
-      <div style={{ gridColumn: "3 / 4", gridRow: '1 / 1' }}>
-        <LabeledFreeformTextLarge label={'Max Hit Points'} updateSheetValues={updateSheetValues} sheetValues={sheetValues} accessor={accessor} />
-      </div>
-      <div style={{ gridColumn: "1 / 2", gridRow: '2 / 2' }}>
-        <LabeledFreeformTextLarge label={"Temporary HP"} updateSheetValues={updateSheetValues} sheetValues={sheetValues} accessor={accessor} />
-      </div>
-      <div style={{ gridColumn: "2 / 3", gridRow: '2 / 2' }}>
-        <LabeledFreeformTextLarge label={"Current Hit Dice"} updateSheetValues={updateSheetValues} sheetValues={sheetValues} accessor={accessor} />
-      </div>
-      <div style={{ gridColumn: "3 / 4", gridRow: '2 / 2' }}>
-        <LabeledFreeformTextLarge label={"Max Hit Dice"} updateSheetValues={updateSheetValues} sheetValues={sheetValues} accessor={accessor} />
-      </div>
+      {hitPointsInputsConfig.map((input) => {
+        return (
+          <div style={{ gridColumn: `${input.col}`, gridRow: `${input.row}` }} key={`${accessor}-${input.label}`}>
+            <LabeledFreeformTextLarge label={input.label} updateSheetValues={updateSheetValues} sheetValues={sheetValues} accessor={`${accessor}-${input.label}`} />
+          </div>
+        )
+      })}
     </div>
   );
 }
