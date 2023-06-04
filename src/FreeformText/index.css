@@ -30,3 +30,14 @@
   border-bottom: none;
   text-align: center;
 }
+
+.fillable-singleline {
+  box-sizing: border-box;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #333;
+  outline: none;
+  text-align: center;
+  font-size: 1em;
+  font-weight: bold;
+}

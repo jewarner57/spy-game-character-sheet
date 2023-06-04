@@ -1,0 +1,7 @@
+.multi-input-line {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(8, [col-start] 1fr);
+  gap: 5px;
+  text-align: center;
+}

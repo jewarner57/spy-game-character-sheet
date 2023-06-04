@@ -19,6 +19,7 @@ function CharacterSheet() {
     { title: 'Hit Points', col: "8 / 13", row: "3 / 6", variant: "hit-points" },
     { title: 'Ability Scores', col: "1 / 6", row: "1 / 3", variant: "ability-scores" },
     { title: 'Saving Throws', col: "1 / 6", row: "4 / 6", variant: "saving-throws" },
+    { title: 'Attacks', col: "5 / 9", row: "7 / 10", variant: "attacks" },
   ]
 
   return (
