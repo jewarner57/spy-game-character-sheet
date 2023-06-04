@@ -1,0 +1,22 @@
+.ability-bar {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.bottom-ability-bar {
+  margin-top: 5px;
+}
+
+.ability-bar-score-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.prof-bar-item {
+  display: flex;
+  width: 100%;
+  border: 1px solid #333;
+  justify-content: center;
+}

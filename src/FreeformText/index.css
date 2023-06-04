@@ -9,3 +9,24 @@
   flex-grow: 1;
   height: 100%;
 }
+
+.sheet-fillable-section-large {
+  flex-grow: 1;
+  height: calc(100% - 1em);
+}
+
+.sheet-fillable-section > input {
+  border: 1px solid #333;
+}
+
+.sheet-fillable-section > input:focus {
+  outline: none;
+}
+
+.freeform-text-header {
+  margin: 0;
+  padding: 0;
+  border: 1px solid #333;
+  border-bottom: none;
+  text-align: center;
+}

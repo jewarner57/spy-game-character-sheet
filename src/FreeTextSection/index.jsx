@@ -1,3 +1,5 @@
+import AbilityScoresSection from '../AbilityScoresSection';
+import SavingThrowsSection from '../SavingThrowsSection';
 import { FreeformText, FreeformTextLarge } from '../FreeformText';
 import HitPointsInput from '../HitPointsInput';
 import SectionHeader from '../SectionHeader'
@@ -9,8 +11,8 @@ function FreeTextSection({ title, tableCol, tableRow, updateSheetValues, sheetVa
   const variantComponentMap = {
     "freeform": FreeformText,
     "freeform-large": FreeformTextLarge,
-    "ability-scores": <></>,
-    "saving-throws": <></>,
+    "ability-scores": AbilityScoresSection,
+    "saving-throws": SavingThrowsSection,
     "skills": <></>,
     "attacks": <></>,
     "hit-points": HitPointsInput, 

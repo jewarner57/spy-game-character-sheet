@@ -8,5 +8,5 @@
   display: grid;
   grid-template-columns: repeat(12, [col-start] 1fr);
   gap: 20px;
-  grid-auto-rows: 130px;
+  grid-auto-rows: 70px;
 }
