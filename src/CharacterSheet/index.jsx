@@ -19,8 +19,22 @@ function CharacterSheet() {
     { title: 'Hit Points', col: "8 / 13", row: "3 / 6", variant: "hit-points" },
     { title: 'Ability Scores', col: "1 / 6", row: "1 / 3", variant: "ability-scores" },
     { title: 'Saving Throws', col: "1 / 6", row: "4 / 6", variant: "saving-throws" },
+    { title: 'Skills', col: "1 / 5", row: "7 / 17", variant: "skills" },
     { title: 'Attacks', col: "5 / 9", row: "7 / 10", variant: "attacks" },
-    { title: 'Skills', col: "1 / 5", row: "7 / 18", variant: "skills" },
+    { title: 'Features', col: "9 / 13", row: "7 / 18", variant: "freeform" },
+    { title: 'Armor & Vehicle Proficiencies', col: "5 / 9", row: "10 / 13", variant: "freeform" },
+    { title: 'Tool & Weapon Proficiencies', col: "5 / 9", row: "13 / 16", variant: "freeform" },
+    { title: 'Language Proficiencies', col: "5 / 9", row: "16 / 18", variant: "freeform" },
+    { title: 'Background', col: "1 / 5", row: "18 / 20", variant: "freeform" },
+    { title: 'Nationality', col: "5 / 9", row: "18 / 20", variant: "freeform" },
+    { title: 'Double Life', col: "1 / 5", row: "20 / 23", variant: "freeform" },
+    { title: 'Equipment', col: "5 / 13", row: "20 / 26", variant: "freeform" },
+    { title: 'Secret', col: "1 / 5", row: "23 / 26", variant: "freeform" },
+    { title: 'Ideal', col: "1 / 5", row: "26 / 29", variant: "freeform" },
+    { title: 'Bond', col: "1 / 5", row: "29 / 32", variant: "freeform" },
+    { title: 'Gadgets', col: "5 / 13", row: "26 / 32", variant: "freeform" },
+    { title: 'Ammo', col: "1 / 13", row: "32 / 34", variant: "freeform" },
+    { title: 'Cash', col: "1 / 13", row: "34 / 36", variant: "freeform" },
   ]
 
   return (
