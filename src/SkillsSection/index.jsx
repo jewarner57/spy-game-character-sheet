@@ -34,10 +34,9 @@ function SkillsSection({ title, updateSheetValues, sheetValues, accessor }) {
         ];
 
         return (
-          <div className='skills-list'>
+          <div className='skills-list' key={`${title} ${skill.name} ${accessor}`}>
             <p>{skill.name}</p>
             <MultipleInputLine
-              key={`${title} ${skill.name} ${accessor}`}
               title={title}
               updateSheetValues={updateSheetValues}
               sheetValues={sheetValues}

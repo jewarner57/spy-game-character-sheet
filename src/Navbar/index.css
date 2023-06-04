@@ -1,0 +1,31 @@
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the navigation bar */
+nav {
+  background-color: #434b5a;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+nav ul li {
+  display: inline-block;
+  cursor: pointer;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+}
+
+nav ul li a:hover {
+  background-color: #5d6679;
+}

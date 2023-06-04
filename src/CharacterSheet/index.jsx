@@ -1,10 +1,7 @@
-import { useState } from 'react';
 import FreeTextSection from '../FreeTextSection';
 import './index.css';
 
-function CharacterSheet() {
-  const [sheetValues, setSheetValues] = useState({});
-
+function CharacterSheet({ sheetValues, setSheetValues }) {
   const updateSheetValueByAccessor = (accessor, value) => {
     setSheetValues((prev) => { return { ...prev, [accessor]:value }})
     console.log(sheetValues)
