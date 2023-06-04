@@ -5,6 +5,7 @@ import HitPointsInput from '../HitPointsInput';
 import SectionHeader from '../SectionHeader'
 import './index.css';
 import AttacksSection from '../AttacksSection';
+import SkillsSection from '../SkillsSection';
 
 function FreeTextSection({ title, tableCol, tableRow, updateSheetValues, sheetValues, accessor, variant }) {
   
@@ -14,7 +15,7 @@ function FreeTextSection({ title, tableCol, tableRow, updateSheetValues, sheetVa
     "freeform-large": FreeformTextLarge,
     "ability-scores": AbilityScoresSection,
     "saving-throws": SavingThrowsSection,
-    "skills": <></>,
+    "skills": SkillsSection,
     "attacks": AttacksSection,
     "hit-points": HitPointsInput, 
   }

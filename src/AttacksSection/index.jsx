@@ -4,7 +4,7 @@ import './index.css';
 
 function AttacksSection({ title, updateSheetValues, sheetValues, accessor }) {
 
-  const [attackCount, setAttackCount] = useState(30);
+  const [attackCount, setAttackCount] = useState(5);
 
   const inputsConfigArray = [
     { label: "Weapon", gridCol: '1 / 5' },
