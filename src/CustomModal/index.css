@@ -1,0 +1,42 @@
+.modal-shade {
+  position: absolute;
+  background-color: #0000006f;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.custom-modal {
+  width: 400px;
+  min-height: 100px;
+  background-color: white;
+  position: absolute;
+  top: 40%;
+  left: calc(50% - 200px);
+  padding: 10px;
+}
+
+.modal-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-buttons > .close-button {
+  background-color: #888;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.modal-buttons>.close-button:hover {
+  background-color: #555;
+}
+
+.modal-content {
+  padding: 10px;
+}

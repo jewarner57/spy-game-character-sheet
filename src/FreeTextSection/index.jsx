@@ -9,7 +9,6 @@ import SkillsSection from '../SkillsSection';
 
 function FreeTextSection({ title, tableCol, tableRow, updateSheetValues, sheetValues, accessor, variant }) {
   
-  
   const variantComponentMap = {
     "freeform": FreeformText,
     "freeform-large": FreeformTextLarge,

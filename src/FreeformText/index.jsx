@@ -2,9 +2,10 @@ import './index.css';
 
 export function FreeformText(props) {
   const { accessor, label, updateSheetValues, sheetValues } = props
+
   return (
     <div className="sheet-fillable-section">
-      <textarea label={label} className="fillable-freeform" onChange={(e) => updateSheetValues(accessor, e.target.value)} value={sheetValues?.accessor}></textarea>
+      <textarea label={label} className="fillable-freeform" onChange={(e) => updateSheetValues(accessor, e.target.value)} value={sheetValues[accessor] || ''}></textarea>
     </div>
   );
 }
@@ -13,7 +14,7 @@ export function FreeformTextLarge(props) {
   const { accessor, label, updateSheetValues, sheetValues } = props
   return (
     <div className="sheet-fillable-section">
-      <input style={{ fontSize: '4em', textAlign: 'center' }} label={label} className="fillable-freeform" onChange={(e) => updateSheetValues(accessor, e.target.value)} value={sheetValues?.accessor}></input>
+      <input style={{ fontSize: '4em', textAlign: 'center' }} label={label} className="fillable-freeform" onChange={(e) => updateSheetValues(accessor, e.target.value)} value={sheetValues[accessor] || ''}></input>
     </div>
   );
 }
@@ -27,7 +28,7 @@ export function LabeledFreeformTextLarge(props) {
         style={{ fontSize: '3em', textAlign: 'center', borderTop: `${header ? 'none' : '1px solid #333'}`, borderBottom: `${label ? 'none' : '1px solid #333'}` }} 
         label={label} className="fillable-freeform" 
         onChange={(e) => updateSheetValues(accessor, e.target.value)} 
-        value={sheetValues?.accessor}
+        value={sheetValues[accessor] || ''}
       />
       <p style={{ margin: 0, border: '1px solid #333', borderTop: 'none', textAlign: 'center' }}>{label}</p>
     </div>
@@ -38,7 +39,7 @@ export function SingleLineText(props) {
   const { accessor, label, updateSheetValues, sheetValues } = props
   return (
     <div className="sheet-fillable-singleline">
-      <input label={label} className="fillable-singleline" onChange={(e) => updateSheetValues(accessor, e.target.value)} value={sheetValues?.accessor}></input>
+      <input label={label} className="fillable-singleline" onChange={(e) => updateSheetValues(accessor, e.target.value)} value={sheetValues[accessor] || ''}></input>
     </div>
   );
 }
