@@ -1,4 +1,5 @@
 import FreeTextSection from '../FreeTextSection';
+import SheetHeader from '../SheetHeader';
 import './index.css';
 
 function CharacterSheet({ sheetValues, setSheetValues }) {
@@ -36,6 +37,14 @@ function CharacterSheet({ sheetValues, setSheetValues }) {
 
   return (
     <div className="character-sheet-container">
+      <SheetHeader
+        headerTitle={'AGENCY PERSONNEL DOSSIER'} 
+        title={'Codename'}
+        updateSheetValues={updateSheetValueByAccessor}
+        sheetValues={sheetValues}
+        accessor={'Codename'}
+      />
+      <div className='character-sheet-grid'>
       {sheetConfig.map((section) =>
         <FreeTextSection 
           key={section?.title}
@@ -48,6 +57,7 @@ function CharacterSheet({ sheetValues, setSheetValues }) {
           variant={section?.variant}
         />
       )}
+      </div>
     </div>
   );
 }

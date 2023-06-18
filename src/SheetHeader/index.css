@@ -1,0 +1,25 @@
+.sheet-header {
+  width: 100%;
+  border: 1px solid #BB3023;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.sheet-header > h1 {
+  margin: 0;
+  font-style: italic;
+  color: #BB3023;
+}
+
+.name-field {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.name-label {
+  margin: 0;
+  font-weight: bold;
+}
