@@ -1,3 +1,9 @@
+// - should be the codename, 
+// - should be able to delete character on opera browser, 
+// - write up some instructions for how to use it that appear at first start
+// or can be accessed view a question mark. 
+// Confirm file upload before upload and close upload modal after upload
+
 import './App.css';
 import { useState, useEffect } from 'react';
 
