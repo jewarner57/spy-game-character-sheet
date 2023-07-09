@@ -11,7 +11,6 @@ nav {
 nav ul {
   list-style-type: none;
   display: flex;
-  justify-content: space-between;
 }
 
 nav ul li {
@@ -24,6 +23,7 @@ nav ul li a {
   color: #fff;
   text-decoration: none;
   padding: 10px;
+  border-right: 1px solid gray;
 }
 
 nav ul li a:hover {
@@ -37,4 +37,25 @@ nav ul li a:hover {
 .saved-characters-header {
   padding: 10px;
   color: white;
+}
+
+.new-character-button {
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.new-character-button > div {
+  box-sizing: border-box;
+  color: white;
+  padding: 0px 10px;
+  font-size: 2.5em;
+  font-family: monospace;
+  overflow: hidden;
+}
+
+.new-character-button:hover {
+  background-color: #5d6679
 }

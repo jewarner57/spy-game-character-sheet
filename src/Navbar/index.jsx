@@ -11,16 +11,15 @@ function Navbar({ downloadJson, uploadJson, characterList, currentCharacter, set
               {characterList.map((char) => {
                 return (
                   <li className={`${char === currentCharacter ? 'selected-char' : ''}`} key={char}>
-                    <a onClick={() => { setCharacter(char) }} >
+                    <a onClick={() => setCharacter(char)} >
                       {JSON.parse(localStorage.getItem(char))?.Codename || `Untitled-${char.substring(8, 15)}`}
                     </a>
                   </li>
                 )
               })}
             </div>
-            <div className="nav-buttons">
-              <li><a onClick={() => createNewCharacter()}>New Character</a></li>
-              <li><a onClick={() => uploadJson()}>Upload Sheet</a></li>
+          <div className='new-character-button' onClick={() => createNewCharacter()}>
+              <div>+</div>
             </div>
           </ul>
         </nav>

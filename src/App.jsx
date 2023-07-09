@@ -5,7 +5,7 @@
 // Confirm file upload before upload and close upload modal after upload
 
 import './App.css';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 import CharacterSheet from './CharacterSheet';
 import Navbar from './Navbar';
@@ -20,12 +20,14 @@ function App() {
     return key.substring(0, 7) === 'spygame'
   });
 
+  const hiddenFileInput = useRef(null);
+
+  const handleUploadClick = event => {
+    hiddenFileInput.current.click();
+  };
+
   const downloadJson = () => {
     exportToJson();
-  }
-
-  const uploadJson = () => {
-    setModalOpen(true)
   }
 
   const downloadFile = ({ data, fileName, fileType }) => {
@@ -98,19 +100,25 @@ function App() {
   return (
     <div className="App">
       <Navbar 
-        uploadJson={uploadJson} 
         characterList={savedCharacters} 
         currentCharacter={currentCharacterID} 
         setCharacter={loadCharacterFromID}
-        createNewCharacter={createNewCharacter} 
+        createNewCharacter={() => setModalOpen(true)} 
       />
       <div className="page-body">
         <CharacterSheet sheetValues={sheetValues} setSheetValues={saveAndUpdateSheetValues} downloadSheet={downloadJson} deleteCharacter={deleteCurrentCharacter} />
       </div>
       {
       modalOpen && <CustomModal closeModal={() => setModalOpen(false)}>
-        <p>Upload File</p>
-          <input type="file" onChange={(e) => { handleUploadChange(e); setModalOpen(false) }} />
+        <div className='new-character-selector'>
+          <div className='new-character-upload' onClick={(e) => handleUploadClick(e)}>
+            <p>Upload character file</p>
+            <input ref={hiddenFileInput} type="file" style={{ display: 'none' }} onChange={(e) => { handleUploadChange(e); setModalOpen(false) }} />
+          </div>
+            <div className='new-character-blank' onClick={() => {createNewCharacter(); setModalOpen(false);}}>
+            Create new blank character
+          </div>
+        </div>
       </CustomModal>
       }
     </div>
