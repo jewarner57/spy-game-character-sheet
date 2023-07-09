@@ -4,7 +4,7 @@
   min-height: 500px;
   margin: auto;
   margin-bottom: 30px;
-  padding: 50px;
+  padding: 10px 50px 50px 50px;
   border-radius: 5px;  
 }
 
@@ -13,4 +13,36 @@
   grid-template-columns: repeat(12, [col-start] 1fr);
   gap: 20px;
   grid-auto-rows: 70px;
+}
+
+.sheet-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1px;
+  margin: 10px 0;
+}
+
+.sheet-actions > div {
+  color: gray;
+  box-sizing: border-box;
+  border-radius: 3px;
+  padding: 5px 10px;
+  border: 1px solid transparent;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+.sheet-actions > div > svg {
+  width: 1.5em;
+  height: 1.5em;
+  fill: 'red';
+}
+
+.sheet-actions > div:hover {
+  box-sizing: border-box;
+  background-color: #CECCDA;
+  color:black;
 }

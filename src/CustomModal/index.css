@@ -20,23 +20,54 @@
 .modal-buttons {
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  gap: 5px;
+  justify-content: space-between;
 }
 
-.modal-buttons > .close-button {
+.modal-buttons > div > button {
   background-color: #888;
   color: white;
   padding: 10px 20px;
   border-radius: 3px;
   border: none;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.2s;
+  border: 2px solid transparent;
 }
 
-.modal-buttons>.close-button:hover {
+.modal-buttons > div > .close-button {
+  background-color: transparent;
+  border: 2px solid #888;
+  color: gray;
+}
+
+.modal-buttons > div > .primary {
+  background-color: #9e94d6;
+}
+
+.modal-buttons > div > .danger {
+  background-color: tomato;
+}
+
+.modal-buttons > div > button:hover {
   background-color: #555;
+  color: white;
+  border: 2px solid transparent;
+}
+
+.modal-buttons > div > .danger:hover {
+  background-color: rgb(169, 64, 45);
+}
+
+.modal-buttons>div>.primary:hover {
+  background-color: #68628f;
 }
 
 .modal-content {
   padding: 10px;
+}
+
+.custom-modal-buttons {
+  display: flex;
+  gap: 5px;
 }

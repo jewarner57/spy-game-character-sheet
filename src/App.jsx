@@ -5,7 +5,7 @@
 // Confirm file upload before upload and close upload modal after upload
 
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 import CharacterSheet from './CharacterSheet';
 import Navbar from './Navbar';
@@ -46,7 +46,7 @@ function App() {
   const exportToJson = () => {
     downloadFile({
       data: JSON.stringify(sheetValues),
-      fileName: 'users.json',
+      fileName: sheetValues?.Codename ? `${sheetValues?.Codename}.json` : `Untitled-${currentCharacterID.substring(8, 15)}.json`,
       fileType: 'text/json',
     })
   }
@@ -63,6 +63,11 @@ function App() {
       };
   };
 
+  const deleteCurrentCharacter = () => {
+    localStorage.removeItem(currentCharacterID);
+    setCurrentCharacterID();
+  }
+
   const createNewCharacter = () => {
     loadCharacterFromID(`spygame-${uuidv4()}`);
   }
@@ -76,6 +81,11 @@ function App() {
     saveCharacterToLocalStorage(currentCharacterID, value(sheetValues));
   }
 
+  const loadCharacterFromID = useCallback((id) => {
+    setCurrentCharacterID(id)
+    setSheetValues(JSON.parse(localStorage.getItem(id)) || {})
+  }, [])
+
   useEffect(() => {
     if (!currentCharacterID) {
       if (savedCharacters.length) {
@@ -83,31 +93,24 @@ function App() {
       }
       return loadCharacterFromID(`spygame-${uuidv4()}`); 
     }
-    loadCharacterFromID(currentCharacterID)
-  }, [currentCharacterID, savedCharacters])
-
-  const loadCharacterFromID = (id) => {
-    setCurrentCharacterID(id)
-    setSheetValues(JSON.parse(localStorage.getItem(id)) || {})
-  }
+  }, [currentCharacterID, savedCharacters, loadCharacterFromID])
 
   return (
     <div className="App">
       <Navbar 
-        downloadJson={downloadJson} 
         uploadJson={uploadJson} 
         characterList={savedCharacters} 
         currentCharacter={currentCharacterID} 
-        setCharacter={setCurrentCharacterID}
+        setCharacter={loadCharacterFromID}
         createNewCharacter={createNewCharacter} 
       />
       <div className="page-body">
-        <CharacterSheet sheetValues={sheetValues} setSheetValues={saveAndUpdateSheetValues} />
+        <CharacterSheet sheetValues={sheetValues} setSheetValues={saveAndUpdateSheetValues} downloadSheet={downloadJson} deleteCharacter={deleteCurrentCharacter} />
       </div>
       {
       modalOpen && <CustomModal closeModal={() => setModalOpen(false)}>
         <p>Upload File</p>
-          <input type="file" onChange={(e) => { handleUploadChange(e) }} />
+          <input type="file" onChange={(e) => { handleUploadChange(e); setModalOpen(false) }} />
       </CustomModal>
       }
     </div>

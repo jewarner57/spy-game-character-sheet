@@ -21,7 +21,6 @@ function Navbar({ downloadJson, uploadJson, characterList, currentCharacter, set
             <div className="nav-buttons">
               <li><a onClick={() => createNewCharacter()}>New Character</a></li>
               <li><a onClick={() => uploadJson()}>Upload Sheet</a></li>
-              <li><a onClick={() => downloadJson()}>Download Sheet</a></li>
             </div>
           </ul>
         </nav>
