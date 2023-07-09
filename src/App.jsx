@@ -1,14 +1,18 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import CharacterSheet from './CharacterSheet';
 import Navbar from './Navbar';
 import CustomModal from './CustomModal';
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const [sheetValues, setSheetValues] = useState({});
+  const [currentCharacterID, setCurrentCharacterID] = useState();
   const [modalOpen, setModalOpen] = useState(false)
-  const [files, setFileContent] = useState();
+  const savedCharacters = Object.keys({ ...localStorage }).filter((key) => {
+    return key.substring(0, 7) === 'spygame'
+  });
 
   const downloadJson = () => {
     exportToJson();
@@ -46,15 +50,53 @@ function App() {
       fileReader.readAsText(e.target.files[0], "UTF-8");
       fileReader.onload = e => {
         const loadedSheetObj = JSON.parse(e.target.result)
-        setSheetValues(loadedSheetObj);
+        
+        const uploadedCharID = loadedSheetObj?.characterID || `spygame-${uuidv4()}`
+        saveCharacterToLocalStorage(uploadedCharID, loadedSheetObj);
+        loadCharacterFromID(uploadedCharID) 
       };
   };
 
+  const createNewCharacter = () => {
+    loadCharacterFromID(`spygame-${uuidv4()}`);
+  }
+
+  const saveCharacterToLocalStorage = (id, characterObject) => {
+    localStorage.setItem(id, JSON.stringify(characterObject));
+  }
+
+  const saveAndUpdateSheetValues = (value) => {
+    setSheetValues({ ...value(sheetValues), characterID: currentCharacterID});
+    saveCharacterToLocalStorage(currentCharacterID, value(sheetValues));
+  }
+
+  useEffect(() => {
+    if (!currentCharacterID) {
+      if (savedCharacters.length) {
+        return loadCharacterFromID(savedCharacters[0])
+      }
+      return loadCharacterFromID(`spygame-${uuidv4()}`); 
+    }
+    loadCharacterFromID(currentCharacterID)
+  }, [currentCharacterID, savedCharacters])
+
+  const loadCharacterFromID = (id) => {
+    setCurrentCharacterID(id)
+    setSheetValues(JSON.parse(localStorage.getItem(id)) || {})
+  }
+
   return (
     <div className="App">
-      <Navbar downloadJson={downloadJson} uploadJson={uploadJson}/>
+      <Navbar 
+        downloadJson={downloadJson} 
+        uploadJson={uploadJson} 
+        characterList={savedCharacters} 
+        currentCharacter={currentCharacterID} 
+        setCharacter={setCurrentCharacterID}
+        createNewCharacter={createNewCharacter} 
+      />
       <div className="page-body">
-        <CharacterSheet sheetValues={sheetValues} setSheetValues={setSheetValues} />
+        <CharacterSheet sheetValues={sheetValues} setSheetValues={saveAndUpdateSheetValues} />
       </div>
       {
       modalOpen && <CustomModal closeModal={() => setModalOpen(false)}>
