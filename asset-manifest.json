@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/spy-game-character-sheet/static/css/main.51502134.css",
-    "main.js": "/spy-game-character-sheet/static/js/main.473624d1.js",
+    "main.css": "/spy-game-character-sheet/static/css/main.474f686e.css",
+    "main.js": "/spy-game-character-sheet/static/js/main.c9374499.js",
     "index.html": "/spy-game-character-sheet/index.html",
-    "main.51502134.css.map": "/spy-game-character-sheet/static/css/main.51502134.css.map",
-    "main.473624d1.js.map": "/spy-game-character-sheet/static/js/main.473624d1.js.map"
+    "main.474f686e.css.map": "/spy-game-character-sheet/static/css/main.474f686e.css.map",
+    "main.c9374499.js.map": "/spy-game-character-sheet/static/js/main.c9374499.js.map"
   },
   "entrypoints": [
-    "static/css/main.51502134.css",
-    "static/js/main.473624d1.js"
+    "static/css/main.474f686e.css",
+    "static/js/main.c9374499.js"
   ]
 }
