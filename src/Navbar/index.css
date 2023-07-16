@@ -11,6 +11,7 @@ nav {
 nav ul {
   list-style-type: none;
   display: flex;
+  justify-content: space-between;
 }
 
 nav ul li {
@@ -39,7 +40,7 @@ nav ul li a:hover {
   color: white;
 }
 
-.new-character-button {
+.new-character-button, .help-button {
   height: auto;
   display: flex;
   justify-content: center;
@@ -47,15 +48,51 @@ nav ul li a:hover {
   cursor: pointer;
 }
 
-.new-character-button > div {
+.new-character-button > div, .help-button {
   box-sizing: border-box;
   color: white;
-  padding: 0px 10px;
+  padding: 0px 15px;
   font-size: 2.5em;
   font-family: monospace;
   overflow: hidden;
 }
 
-.new-character-button:hover {
+.new-character-button:hover, .help-button:hover {
   background-color: #5d6679
+}
+
+.saved-characters {
+  display: flex;
+}
+
+.help-button-first-open {
+  /* padding: 0px 25px; */
+  animation: help-button-walkme 3s ease-out infinite;
+  animation-delay: 3s;
+}
+
+@keyframes help-button-walkme {
+  0% {
+    background-color: #434b5a;
+  }
+  50% {
+    background-color: #BB3023;
+  }
+  100% {
+   background-color: #434b5a; 
+  }
+}
+
+.instruction-text {
+  margin: 10px 0;
+  padding: 0;
+}
+
+.instruction-body {
+  margin-top: 30px;
+}
+
+.instruction-body > h2 {
+  margin: 0;
+  color: rgb(43, 43, 43);
 }
